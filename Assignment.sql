@@ -1,0 +1,125 @@
+CREATE DATABASE Horizon
+GO
+
+CREATE TABLE Account
+(
+	UserID VARCHAR(10) PRIMARY KEY,
+	UserName NVARCHAR(50) NOT NULL,
+	PasswordHash VARCHAR(50) NOT NULL,
+	Email NVARCHAR(50) NOT NULL,
+	Sex CHAR(1),
+	DateOfBirth DATE,
+	PhoneNumber CHAR(10),
+	Active INT DEFAULT '0',
+	DisableAccount INT DEFAULT '0',
+	IsAdmin INT DEFAULT '0',
+	DefaultAvatar CHAR(1),
+	ColorAvatar VARCHAR(10),
+	ImageAvatar VARBINARY(MAX),
+	UserAddress NVARCHAR(150),
+	AccountCreated DATETIME DEFAULT CURRENT_TIMESTAMP
+)
+
+CREATE TABLE Brand
+(
+	BrandID VARCHAR(10) PRIMARY KEY,
+	BrandName NVARCHAR(50) NOT NULL,
+)
+
+CREATE TABLE ProductType
+(
+	ProductTypeID VARCHAR(10) PRIMARY KEY,
+	ProductTypeName NVARCHAR(50) NOT NULL,
+)
+
+CREATE TABLE Product
+(
+	ProductID VARCHAR(10) PRIMARY KEY,
+	ProductName NVARCHAR(50) NOT NULL,
+	ImageProduct VARBINARY(MAX),
+	BrandID VARCHAR(10) FOREIGN KEY REFERENCES Brand(BrandID),
+	ProductPrice INT DEFAULT '0',
+	ProductDiscount INT DEFAULT '0',
+	Viewers INT DEFAULT '0',
+	ProductCreated DATETIME DEFAULT CURRENT_TIMESTAMP
+)
+
+CREATE TABLE Rating
+(
+	RatingID VARCHAR(10) PRIMARY KEY,
+	ProductID VARCHAR(10) FOREIGN KEY REFERENCES Product(ProductID),
+	UserID VARCHAR(10) FOREIGN KEY REFERENCES Account(UserID),
+	NumberRating INT,
+	RatingCreated DATETIME DEFAULT CURRENT_TIMESTAMP
+)
+
+CREATE TABLE ProductContent
+(
+	ProductContentID VARCHAR(10) PRIMARY KEY,
+	ProductID VARCHAR(10) FOREIGN KEY REFERENCES Product(ProductID),
+	ProductDescription NTEXT,
+	ProductContent NTEXT,
+)
+
+CREATE TABLE Payment
+(
+	PaymentID VARCHAR(10) PRIMARY KEY,
+	UserID VARCHAR(10) FOREIGN KEY REFERENCES Account(UserID),
+	ProductID VARCHAR(10) FOREIGN KEY REFERENCES Product(ProductID),
+	Total INT,
+	TypePayment NVARCHAR(250),
+	PaymentCreated DATETIME DEFAULT CURRENT_TIMESTAMP
+)
+
+CREATE TABLE Notify
+(
+	NotifyID VARCHAR(10) PRIMARY KEY,
+	UserID VARCHAR(10) FOREIGN KEY REFERENCES Account(UserID),
+	NotifyType NVARCHAR(10),
+	IsRead INT DEFAULT '0',
+	NotifyCreated DATETIME DEFAULT CURRENT_TIMESTAMP
+)
+
+CREATE TABLE Cart
+(
+	CartID VARCHAR(10) PRIMARY KEY,
+	UserID VARCHAR(10) FOREIGN KEY REFERENCES Account(UserID),
+	ImageProduct VARBINARY(MAX),
+	ProductName NVARCHAR(50),
+	Quantity INT,
+	Price INT,
+	PurchaseDate DATETIME DEFAULT CURRENT_TIMESTAMP
+)
+
+DELETE Account WHERE UserID = 'imvOT9dCnY'
+DELETE Notify WHERE UserID = 'imvOT9dCnY'
+DELETE Product WHERE ProductID = 'zNU3BjCI3f'
+DELETE ProductContent WHERE ProductContentID = '0QfDhAt6AB'
+
+SELECT ImageAvatar FROM Account WHERE UserID = '3gpmziYFQl'
+
+ALTER TABLE Brand ADD ImageBrand VARBINARY(MAX);
+
+ALTER TABLE Product ADD ProductTypeID VARCHAR(10) FOREIGN KEY REFERENCES ProductType(ProductTypeID)
+
+ALTER TABLE Product ADD Quantity INT DEFAULT '0'
+
+ALTER TABLE ProductType ADD IconProductType VARCHAR(300)
+ALTER TABLE ProductType DROP COLUMN IconProductType;
+
+SELECT * FROM Product WHERE ProductTypeID = (SELECT ProductTypeID FROM ProductType WHERE ProductTypeName = 'Laptop') ORDER BY ProductID OFFSET 1 ROWS FETCH NEXT 4 ROWS ONLY
+
+ALTER TABLE ProductContent DROP COLUMN ProductTarget;
+
+SELECT TOP 8 * FROM Product ORDER BY NEWID()
+SELECT * FROM Product
+SELECT SUM(Quantity) FROM Product WHERE ProductTypeID = '8JpJZasEIk' AND BrandID = 'QaYwDIR7z4'
+
+ALTER TABLE ProductContent ALTER COLUMN ProductDescription NVARCHAR(MAX)
+ALTER TABLE ProductContent ALTER COLUMN ProductContent NVARCHAR(MAX)
+
+SELECT COUNT(*) FROM Product WHERE ProductTypeID = (SELECT ProductTypeID FROM ProductType WHERE ProductTypeName = 'Laptop')
+SELECT * FROM Product WHERE ProductName LIKE 'Màn hình cong SAMSUNG QLED LC49G95 49_ VA 2K'
+SELECT * FROM Product WHERE ProductTypeID = 'z8SA3vVqGb'
+DELETE FROM ProductType WHERE ProductTypeID = '1';
+DELETE FROM Product WHERE ProductName LIKE 'Màn hình cong SAMSUNG QLED LC49G95 49_ VA 2K'

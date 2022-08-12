@@ -1,0 +1,604 @@
+/** Management **/
+.management-top {
+    margin: 1rem 0;
+}
+
+.management-layout {
+    position: relative;
+    padding: 0 40px 0;
+}
+
+.management-layout .management-top {
+    display: -webkit-flex;
+    display: flex;
+    -webkit-justify-content: space-between;
+    justify-content: space-between;
+    -webkit-align-items: center;
+    align-items: center;
+    -webkit-flex-wrap: wrap;
+    flex-wrap: wrap;
+}
+
+.management-top .management-title {
+    font-weight: 300;
+    line-height: 1;
+    margin: 11px 0 1.5rem;
+}
+
+.management-top .management-alert {
+    position: relative;
+    padding: 0.75rem 1.25rem;
+    margin-bottom: 1rem;
+    border-radius: 0.3rem;
+    font-size: 1rem;
+    background: #2d8515;
+    color: #f4f4f5;
+    animation: animation-alert 0.6s ease;
+}
+
+@keyframes animation-alert {
+    0% {
+        transform: translateX(-130vw);
+        -webkit-transform: translateX(-130vw);
+    }
+    100% {
+        -webkit-transform: translateX(0);
+        transform: translateX(0);
+    }
+}
+
+.management-top .management-title span {
+    font-weight: 600;
+}
+
+/* table-users */
+img {
+    border-radius: 50%;
+    height: 60px;
+    width: 60px;
+}
+
+.table-users {
+    border-radius: 10px;
+    -webkit-box-shadow: 4px 4px 10px -1px rgba(145, 139, 145, 1);
+    -moz-box-shadow: 4px 4px 10px -1px rgba(145, 139, 145, 1);
+    box-shadow: 4px 4px 10px -1px rgba(145, 139, 145, 1);
+    max-width: calc(100% - 0em);
+    overflow: hidden;
+    width: 80rem;
+}
+
+table {
+    width: 100%;
+}
+
+table td,
+th {
+    color: #398b93;
+    padding: 10px;
+}
+
+table td {
+    text-align: center;
+    vertical-align: middle;
+}
+
+table th {
+    background-color: #398b93;
+    font-weight: 500;
+    text-align: center;
+    color: #fff;
+    font-size: 15px;
+    text-transform: uppercase;
+}
+
+table tr:nth-child(2n) {
+    background-color: white;
+}
+
+table tr:nth-child(2n + 1) {
+    background-color: #ecf6f7;
+}
+
+table .detail a {
+    text-decoration: none;
+    color: #398b93;
+    transition: all 0.5s;
+    font-weight: 500;
+}
+
+table .detail:hover a {
+    color: #7380ec;
+    text-decoration: underline;
+}
+
+@media screen and (max-width: 770px) {
+    table,
+    tr,
+    td {
+        display: block;
+        width: 100%;
+    }
+
+    td {
+        display: flex;
+    }
+
+    td:first-child {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        width: 100px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    td:not(:first-child) {
+        clear: both;
+        margin-left: 100px;
+        padding: 4px 20px 4px 150px;
+        position: relative;
+        text-align: left;
+    }
+    td:not(:first-child):before {
+        color: #398b93;
+        content: "";
+        display: block;
+        left: 0;
+        position: absolute;
+        padding-right: 10px;
+    }
+
+    td:nth-child(2):before {
+        content: "Product Name:";
+    }
+    td:nth-child(3):before {
+        content: "Product Number:";
+    }
+    td:nth-child(4):before {
+        content: "Payment:";
+    }
+    td:nth-child(5):before {
+        content: "Status:";
+    }
+    td:nth-child(6):before {
+        content: "Actions:";
+    }
+
+    tr {
+        padding: 10px 0;
+        position: relative;
+    }
+    tr:first-child {
+        display: none;
+    }
+
+    table tbody {
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    td::before {
+        font-size: 15px;
+        text-transform: uppercase;
+        font-weight: 500;
+    }
+}
+
+@media screen and (max-width: 500px) {
+    .header {
+        background-color: transparent;
+        color: #398b93;
+        font-size: 2em;
+        font-weight: 700;
+        padding: 0;
+        text-shadow: 2px 2px 0 rgba(0, 0, 0, 0.1);
+    }
+
+    img {
+        border: 3px solid;
+        border-color: #398b93;
+        height: 100px;
+        margin: 0.5rem 0;
+        width: 100px;
+    }
+
+    td:first-child {
+        background-color: #398b93;
+        border-bottom: 1px solid #398b93;
+        border-radius: 10px 10px 0 0;
+        position: relative;
+        top: 0;
+        transform: translateY(0);
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    td:not(:first-child) {
+        margin: 0;
+        padding: 5px 1em;
+        width: 100%;
+    }
+    td:not(:first-child):before {
+        font-size: 0.8em;
+        padding-top: 0.3em;
+        position: relative;
+    }
+
+    td:last-child {
+        display: flex;
+        padding-bottom: 1rem !important;
+        justify-content: center;
+        align-items: center;
+    }
+
+    td {
+        display: flex;
+    }
+
+    tr {
+        background-color: white !important;
+        border: 1px solid#398b93;
+        border-radius: 10px;
+        box-shadow: 2px 2px 0 rgba(0, 0, 0, 0.1);
+        margin: 0.5rem 0;
+        padding: 0;
+        width: 100%;
+    }
+
+    .table-users {
+        border: none;
+        box-shadow: none;
+        overflow: visible;
+    }
+
+    table tbody {
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    td::before {
+        font-size: 15px;
+        text-transform: uppercase;
+        font-weight: 500;
+    }
+}
+
+/* insights */
+.insights .insights-box {
+    background: #fff;
+    padding: 1.8rem;
+    border-radius: 2rem;
+    margin-top: 1rem;
+    box-shadow: 0 2rem 3rem rgba(132, 139, 200, 0.18);
+    transition: all 0.5s;
+}
+
+.insights .insights-box:hover {
+    background: linear-gradient(65deg, #d0368a 20%, #708ad4 80%);
+    color: white;
+}
+
+.insights .insights-box:hover small {
+    color: white;
+}
+
+.insights .insights-box i {
+    font-size: 2rem;
+}
+
+.insights .expenses .icon {
+    background: #ff7782;
+}
+
+.insights .income .icon {
+    background: #41f1b6;
+}
+
+.insights-box .middle {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 15px 0;
+}
+
+.insights-box h3 {
+    margin: 1rem 0 0.6rem;
+    font-size: 17px;
+    text-transform: uppercase;
+    font-weight: 700;
+}
+
+.insights-box .icon {
+    width: 60px;
+    height: 60px;
+    background: #7380ec;
+    border-radius: 50%;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.insights-box .insights-progress {
+    position: relative;
+    width: 92px;
+    height: 92px;
+    border-radius: 50%;
+}
+
+.insights-box .insights-progress svg {
+    width: 7rem;
+    height: 7rem;
+}
+
+.insights-box .insights-progress svg circle {
+    fill: none;
+    stroke: #7380ec;
+    stroke-width: 14;
+    stroke-linecap: round;
+    transform: translate(5px, 5px);
+    stroke-dasharray: 110;
+    stroke-dashoffset: 92;
+}
+
+.sales .insights-progress svg circle {
+    stroke-dashoffset: -30;
+    stroke-dasharray: 200;
+}
+
+.expenses .insights-progress svg circle {
+    stroke-dashoffset: 20;
+    stroke-dasharray: 80;
+}
+
+.income .insights-progress svg circle {
+    stroke-dashoffset: 35;
+    stroke-dasharray: 110;
+}
+
+.insights-box .insights-progress .number {
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    top: 50%;
+    left: 50%;
+    font-size: 16px;
+    transform: translate(-53%, -45%);
+}
+
+.insights-box small {
+    display: block;
+    margin-top: 1.3rem;
+    font-size: 14px;
+    transition: all 0.5s;
+}
+
+.insights .box-title {
+    display: flex;
+    justify-content: start;
+    gap: 15px;
+}
+
+.dash-containII {
+    margin: 20px 0;
+}
+
+.dash-containII .containII-title {
+    margin: 30px 0 30px 40px;
+    font-weight: 700;
+}
+
+.dash-containII .show-all {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 15px 0;
+}
+
+.show-all button {
+    outline: none;
+    border: none;
+    cursor: pointer;
+    border-radius: 0;
+}
+
+.show-all .btn {
+    display: inline-block;
+    background-color: transparent;
+    font-family: "Dosis", sans-serif;
+    font-size: 16px;
+    font-weight: 600;
+    color: #000000;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    height: 50px;
+    line-height: 50px;
+    margin-right: 25px;
+    padding: 0 50px;
+    border: none;
+    border-right: 1px solid #708ad4;
+    position: relative;
+    transition: color 0.2s ease-in-out 0s;
+}
+
+.show-all.btn:before,
+.btn:after {
+    content: "";
+    position: absolute;
+    top: 0;
+}
+.show-all .btn:before {
+    right: 0;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #ffffff;
+    z-index: -1;
+}
+.show-all .btn:after {
+    right: -1px;
+    width: 1px;
+    height: 50px;
+    background: linear-gradient(65deg, #d0368a 20%, #708ad4 80%);
+    transform: rotate(-90deg);
+    transform-origin: center;
+    z-index: 0;
+    transition: width 0.3s ease-in-out, transform 0.2s ease-in-out 0.3s,
+        z-index 0.15s ease-in-out;
+}
+.show-all .btn:hover {
+    color: #ffffff;
+    transition: color 0.2s ease-in-out 0.25s;
+}
+.show-all .btn:hover:after {
+    z-index: -1;
+    transform: rotate(0deg);
+    width: 100%;
+    transition: transform 0.2s ease-in-out, width 0.3s ease-in-out 0.2s;
+}
+
+/* ========== RECENT UPDATES ========== */
+
+.dashboard-right .recent-updates {
+    margin-top: 1rem;
+}
+
+.dashboard-right .recent-updates h2 {
+    margin-bottom: 0.8rem;
+}
+
+.dashboard-right .recent-updates .updates {
+    background: #fff;
+    padding: 1.8rem;
+    border-radius: 2rem;
+    box-shadow: 0 2rem 3rem rgba(132, 139, 200, 0.18);
+    transition: all 0.5s;
+}
+
+.dashboard-right .recent-updates .updates:hover {
+    background: linear-gradient(65deg, #d0368a 20%, #708ad4 80%);
+    color: white;
+}
+
+.dashboard-right .recent-updates .updates small {
+    transition: all 0.5s;
+}
+
+.dashboard-right .recent-updates .updates:hover small {
+    color: white;
+}
+
+.dashboard-right .recent-updates .updates .update {
+    display: grid;
+    grid-template-columns: 2.6rem auto;
+    gap: 3rem;
+}
+
+.dashboard-right .recent-updates .update .message p {
+    font-size: 14px;
+}
+
+.dashboard-right .recent-updates .update .message .text-muted {
+    font-size: 12px;
+}
+
+/* ========== SALES ANALYTICS ========== */
+.dashboard-right .sales-analytics {
+    margin-top: 2rem;
+}
+
+.dashboard-right .sales-analytics h2 {
+    margin-bottom: 0.8rem;
+}
+
+.dashboard-right .sales-analytics .item {
+    background: #fff;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 0.7rem;
+    padding: 1.4rem 1.2rem;
+    border-radius: 1.2rem;
+    box-shadow: 0 2rem 3rem rgba(132, 139, 200, 0.18);
+    transition: all 300ms ease;
+}
+
+.dashboard-right .sales-analytics .item:hover {
+    background: linear-gradient(65deg, #d0368a 20%, #708ad4 80%);
+    color: white;
+}
+
+.dashboard-right .sales-analytics .item .right {
+    display: flex;
+    justify-content: space-between;
+    align-items: start;
+    margin: 0;
+    width: 100%;
+}
+
+.dashboard-right .sales-analytics .item .icon {
+    color: #fff;
+    border-radius: 50%;
+    display: flex;
+    width: 70px;
+    height: 60px;
+    justify-content: center;
+    align-items: center;
+    background: #7380ec;
+    font-size: 22px;
+}
+
+.dashboard-right .sales-analytics .item.customers .icon {
+    background: #41f1b6;
+}
+
+.dashboard-right .sales-analytics .add-product {
+    background-color: transparent;
+    border: 2px dashed #7380ec;
+    color: #7380ec;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    font-size: 20px;
+}
+
+.dashboard-right .sales-analytics .add-product div {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+}
+
+.dashboard-right .sales-analytics .add-product div h3 {
+    font-weight: 600;
+    margin-bottom: 0;
+    font-size: 15px;
+}
+
+.sales-analytics .item .right .info h3 {
+    font-size: 14px;
+}
+
+.sales-analytics .item .right .info .text-muted {
+    font-size: 11px;
+}
+
+.sales-analytics .item .right .success {
+    font-size: 15px;
+}
+
+.sales-analytics .item .right .view {
+    font-size: 15px;
+}

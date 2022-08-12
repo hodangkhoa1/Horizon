@@ -1,0 +1,25 @@
+.policy-body h1 {
+    color: blue;
+    margin: 25px 0 15px 0;
+    line-height: 1.4;
+    font-size: 1.7rem;
+    font-weight: 700;
+}
+
+.policy-body p {
+    margin: 10px 0;
+    font-size: 1.2rem;
+    line-height: 1.4;
+}
+
+.policy-body h2 {
+    font-size: 1.4rem;
+    margin-top: 20px;
+}
+
+.policy-body ul {
+    font-size: 1rem;
+    line-height: 1.4;
+    list-style-type: disc;
+    margin: 15px 4px 15px 3px;
+}
