@@ -17,9 +17,9 @@ public class DBUtils {
         try {
             Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
             
-            String urlDataConnection = "jdbc:sqlserver://localhost;databaseName=Horizon";
+            String urlDataConnection = "jdbc:sqlserver://sql.bsite.net\\MSSQL2016;databaseName=khoaho_Horizon";
             
-            Connection dataConn = DriverManager.getConnection(urlDataConnection, "sa", Encrypt.decrypt("u+X+On2XQDymkX7xtpuohQ==", "ssshhhhhhhhhhh!!!!"));
+            Connection dataConn = DriverManager.getConnection(urlDataConnection, "khoaho_Horizon", Encrypt.decrypt("Iu2IBJxRTjs8GUW2gcG+1w==", "ssshhhhhhhhhhh!!!!"));
             
             return dataConn;
         } catch (ClassNotFoundException | SQLException e) {
